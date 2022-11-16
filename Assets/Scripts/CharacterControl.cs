@@ -34,7 +34,7 @@ public class CharacterControl : MonoBehaviour
             myRigidbody.AddForce(transform.up * jumpForce);
         }
 
-        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
+        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
 
 
