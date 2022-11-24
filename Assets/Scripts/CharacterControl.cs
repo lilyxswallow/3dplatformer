@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -17,8 +18,14 @@ public class CharacterControl : MonoBehaviour
 
     float rotationSpeed = 2.0f;
     float camRotationSpeed = 1.5f;
+
+    public bool hasKey = false;
+
    void Start()
     {
+    
+        Cursor.lockState = CursorLockMode.Locked;
+
         cam = GameObject.Find("Main Camera");
         myRigidbody = GetComponent<Rigidbody>();
     }
@@ -46,7 +53,24 @@ public class CharacterControl : MonoBehaviour
         camRotation = Mathf.Clamp(camRotation, -40.0f, 40.0f);
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Key")
+        {
+            hasKey = true;
+
+        }
+        if((hasKey = true) && (other.tag == "Door"))
+        {
+            SceneManager.LoadScene(1);
+          
+        }
+        else if (hasKey = false && other.tag == "Door")
+        {
+        
+        }
+
+    }
 }
       
     
