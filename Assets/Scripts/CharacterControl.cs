@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
+    Vector3 respawnPoint = new Vector3 (63.144f, 205.72f, 394.48f);
         public float maxSpeed = 12f;
         float rotation = 0.0f;
     float camRotation = 0.0f;
@@ -21,9 +22,15 @@ public class CharacterControl : MonoBehaviour
 
     public bool hasKey = false;
 
+    public AudioClip backgroundMusic;
+    public AudioSource musicsource;
+
+    
+
    void Start()
     {
-    
+        musicsource.clip = backgroundMusic;
+        musicsource.loop = true;
         Cursor.lockState = CursorLockMode.Locked;
 
         cam = GameObject.Find("Main Camera");
@@ -70,7 +77,13 @@ public class CharacterControl : MonoBehaviour
         
         }
 
+        if (other.tag == "Death Box")
+        {
+            transform.position = respawnPoint;
+        }
+
     }
+
 }
       
     
