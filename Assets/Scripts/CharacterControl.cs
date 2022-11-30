@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
+
 {
+    public Animator anim;
+
     Vector3 respawnPoint = new Vector3 (63.144f, 205.72f, 394.48f);
         public float maxSpeed = 12f;
         float rotation = 0.0f;
@@ -29,6 +32,7 @@ public class CharacterControl : MonoBehaviour
 
    void Start()
     {
+    
         musicsource.clip = backgroundMusic;
         musicsource.loop = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -42,14 +46,20 @@ public class CharacterControl : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
+        anim.SetBool("isOnGround", isOnGround);
 
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
+            anim.SetTrigger("jumped");
             myRigidbody.AddForce(transform.up * jumpForce);
         }
 
+
+
         Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
+
+        anim.SetFloat("speed", newVelocity.magnitude);
 
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
