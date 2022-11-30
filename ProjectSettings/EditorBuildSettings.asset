@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/welldone.unity
     guid: 869640cf587b13e4883e16d4bd59e947
+  - enabled: 1
+    path: Assets/Scenes/Main menu.unity
+    guid: 8eadc3b114576cb45add28bc119d168e
   m_configObjects: {}

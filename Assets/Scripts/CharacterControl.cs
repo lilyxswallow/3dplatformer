@@ -84,12 +84,12 @@ public class CharacterControl : MonoBehaviour
         }
         else if (hasKey = false && other.tag == "Door")
         {
-        
+         transform.position = respawnPoint;
         }
 
         if (other.tag == "Death Box")
         {
-            transform.position = respawnPoint;
+           transform.position = respawnPoint;
         }
 
     }
