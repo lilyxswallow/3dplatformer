@@ -77,12 +77,12 @@ public class CharacterControl : MonoBehaviour
             hasKey = true;
 
         }
-        if((hasKey = true) && (other.tag == "Door"))
+        if((hasKey = true) & (other.tag == "Door"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
           
         }
-        else if (hasKey = false && other.tag == "Door")
+        if ((hasKey = false) & (other.tag == "Door"))
         {
          transform.position = respawnPoint;
         }
