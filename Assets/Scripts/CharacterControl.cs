@@ -80,6 +80,7 @@ public class CharacterControl : MonoBehaviour
         if((hasKey = true) & (other.tag == "Door"))
         {
             SceneManager.LoadScene(2);
+            Cursor.lockState = CursorLockMode.None;
           
         }
         if ((hasKey = false) & (other.tag == "Door"))
