@@ -75,23 +75,23 @@ public class CharacterControl : MonoBehaviour
         if(other.tag == "Key")
         {
             hasKey = true;
-
+  
         }
-        if(other.tag == "Door")
+
+        if(hasKey == true)
         {
-            if(hasKey == true)
+            if(other.tag == "Door")
             {
                 SceneManager.LoadScene(2);
-                Cursor.lockState = CursorLockMode.None;
             }
+        
         }
-        if (other.tag == "Door")
+        if(hasKey == false)
         {
-            if(hasKey == false)
+            if(other.tag == "Door")
             {
-              transform.position = respawnPoint;  
+                transform.position = respawnPoint;
             }
-         
         }
 
         if (other.tag == "Death Box")
