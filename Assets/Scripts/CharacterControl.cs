@@ -8,7 +8,7 @@ public class CharacterControl : MonoBehaviour
 {
     public Animator anim;
 
-    Vector3 respawnPoint = new Vector3 (63.144f, 205.72f, 394.48f);
+    Vector3 respawnPoint = new Vector3 (63.144f, 200.9f, 394.48f);
         public float maxSpeed = 12f;
         float rotation = 0.0f;
     float camRotation = 0.0f;
